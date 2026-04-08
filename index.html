@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel NDUWAYO BAGI - AI Solutions Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--success-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-white);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text, .hero-image {
+            animation: fadeInUp 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Emmanuel BAGI</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Emmanuel NDUWAYO BAGI</h1>
+                    <h2>AI Solutions Engineer</h2>
+                    <p>Microsoft Copilot & SharePoint • RAG & Chatbot Deployment • Kinshasa, DRC</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:emmanuel.bagi.n@gmail.com" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Me contacter
+                        </a>
+                        <a href="https://linkedin.com/in/emmanuel-bagi-n" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./profile.jpg" alt="Emmanuel NDUWAYO BAGI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Compétences Techniques</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> IA & Automatisation</h3>
+                    <p>Microsoft Copilot, Claude API, ChatGPT, Gemini, LangChain, Hugging Face, RAG systems</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">RAG Architecture</span>
+                        <span class="skill-tag">Chatbots</span>
+                        <span class="skill-tag">Microsoft Copilot</span>
+                        <span class="skill-tag">LangChain</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data & Reporting</h3>
+                    <p>Power BI, KoboToolbox, SQL, Excel avancé, DHIS2, SharePoint</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Dashboards</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> ERP & Systèmes</h3>
+                    <p>Odoo, SAP, Umoja, InSight, configuration et déploiement système</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Odoo</span>
+                        <span class="skill-tag">SAP</span>
+                        <span class="skill-tag">System Design</span>
+                        <span class="skill-tag">ERP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Sécurité & Gouvernance</h3>
+                    <p>Contrôle d'accès, gestion identité, protection données, architecture permissions</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cybersecurity</span>
+                        <span class="skill-tag">Access Control</span>
+                        <span class="skill-tag">Data Protection</span>
+                        <span class="skill-tag">Compliance</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-language"></i> Langues</h3>
+                    <p>Français C2 (natif), Anglais C1, Lingala (natif), Swahili (courant)</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Français</span>
+                        <span class="skill-tag">Anglais</span>
+                        <span class="skill-tag">Lingala</span>
+                        <span class="skill-tag">Swahili</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Outils d'Automatisation</h3>
+                    <p>Make (Integromat), n8n, Power Automate, REST API, webhooks</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Make</span>
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">Power Automate</span>
+                        <span class="skill-tag">APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>AI Project Director & AI Engineer</h3>
+                    <div class="company">Strategic AI Partners (SAIP) • Janvier 2026 – Présent • Kinshasa, RDC</div>
+                    <ul>
+                        <li>Conception et déploiement d'assistants IA utilisant l'architecture RAG sur des documents organisationnels internes</li>
+                        <li>Configuration de Microsoft Copilot et SharePoint pour une récupération IA précise et fiable</li>
+                        <li>Développement de workflows automatisés connectant les outils IA aux systèmes existants</li>
+                        <li>Création de matériels de formation pour l'adoption responsable des outils IA par le personnel non technique</li>
+                        <li>Déploiement de chatbots multilingues (français, lingala, swahili) pour des organisations humanitaires</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>IT & ICT4D Consultant</h3>
+                    <div class="company">Indépendant • Janvier 2024 – Présent • Kinshasa, RDC</div>
+                    <ul>
+                        <li>Déploiement de systèmes de collecte de données KoboToolbox et SharePoint pour partenaires ONG</li>
+                        <li>Création de tableaux de bord Power BI consolidant des données de multiples sources</li>
+                        <li>Conception et livraison de programmes de formation sur les outils numériques et l'adoption de l'IA</li>
+                        <li>Support aux organisations dans l'implémentation de pratiques de sécurité de l'information</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>IT & Logistics Coordinator</h3>
+                    <div class="company">MPEY MAAJABU BUSINESS SARL • Février 2023 – Janvier 2025 • RDC</div>
+                    <ul>
+                        <li>Gestion des systèmes IT et référentiels documentaires sur 5 sites opérationnels</li>
+                        <li>Construction de tableaux de bord Power BI et outils de reporting Excel</li>
+                        <li>Déploiement d'outils de collecte de données numériques et formation des équipes</li>
+                        <li>Établissement de contrôles internes réduisant les pertes de stock de 12%</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>ERP & Information Systems Consultant</h3>
+                    <div class="company">ITC Consulting • Janvier 2022 – Janvier 2023 • Goma, RDC</div>
+                    <ul>
+                        <li>Déploiement et configuration de systèmes ERP Odoo et SAP pour organisations clientes</li>
+                        <li>Formation de plus de 40 utilisateurs sur les outils numériques</li>
+                        <li>Conception de systèmes de reporting permettant la surveillance en temps réel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact & Liens</h2>
+            <div class="contact-info">
+                <a href="mailto:emmanuel.bagi.n@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> emmanuel.bagi.n@gmail.com
+                </a>
+                <a href="tel:+243995504241" class="contact-item">
+                    <i class="fas fa-phone"></i> +243 995 504 241
+                </a>
+                <a href="https://linkedin.com/in/emmanuel-bagi-n" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://emmanuel-bagi-portfolio.vercel.app" target="_blank" class="contact-item">
+                    <i class="fas fa-globe"></i> Portfolio Complet
+                </a>
+                <span class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
